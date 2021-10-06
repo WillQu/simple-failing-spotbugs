@@ -5,6 +5,7 @@
 plugins {
     // Apply the java Plugin to add support for Java.
     java
+    id("com.github.spotbugs")
 }
 
 repositories {
@@ -28,4 +29,9 @@ dependencies {
 tasks.test {
     // Use junit platform for unit tests.
     useJUnitPlatform()
+}
+
+spotbugs {
+    ignoreFailures.set(false)
+    reportLevel.set(com.github.spotbugs.snom.Confidence.DEFAULT)
 }
